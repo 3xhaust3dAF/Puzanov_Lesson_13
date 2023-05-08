@@ -6,9 +6,6 @@ while True:
         break
     f = open('example.txt', 'a+', encoding='utf-8')
     f.write(f'\n{txt}')
-f = open('example.txt', 'a+', encoding='utf-8')
-f.seek(0)
-print(f.readlines())
 f.close()
 
 #2 Пусть будет тот же файл
@@ -33,8 +30,6 @@ for i in ll:
         lc.append(str(i))
 lc.sort(key=len)
 ln.sort()
-#for i in range((len(ln)-1)):
-    #ln[i-1] = str(ln[i-1])
 lc.extend(ln)
 a = ','.join(lc)
 d = open('example1.txt', 'w+', encoding='utf-8')
@@ -44,9 +39,7 @@ print(*d)
 d.close()
 
 #4
-os.chdir('..')
-os.chdir('..')
-os.open('C:/Users/puzan/Desktop', )
+os.chdir('C:/Users/puzan/Desktop')
 for i in range(3):
     g = open(f'C:/Users/puzan/Desktop/my_name/test_{str(i)}.txt', 'w+')
 for i in range(3):
