@@ -1,6 +1,7 @@
 #1
+global s
+s = [1, 2, 3, 'a', 'bc8?']
 def f_info(var):
-    global j
     nms = 0
     chs = 0
     lngth = 0
@@ -39,7 +40,34 @@ def f_info(var):
         print(f'{chs_1} - кол-во букв')
     else:
         raise TypeError('Такой тип не поддерживается')
+#2
+def typ_fx(fx):
+    print(f'Тип данныx - {type(s)}')
+    def wrapper(args):
+        a = []
+        try:
+            for i in args:
+                if type(i) == int:
+                    if 'int' not in a:
+                        a.append('int')
+                if type(i) == str:
+                    if 'str' not in a:
+                        a.append('str')
+            print(f'{a} - типы встречающихся данных')
+        except TypeError:
+            if 'int' not in a:
+                a.append('int')
+            print(f'{a} - типы встречающихся данных')
+    return wrapper
+
+@typ_fx
+def data(m):
+    print(f'Обработка: {data}')
+data([1, 2, 3, 'a', 'bc8?'])
+
 
 
 f_info([1, 2, 3, 'a', 'bc8?'])
+
+#2
 
