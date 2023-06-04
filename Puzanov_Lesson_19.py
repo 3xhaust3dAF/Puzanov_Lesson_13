@@ -7,7 +7,7 @@ class Company:
     def _level_up(self):
         if self._index < 4:
             self._index += 1
-            self.level = levels[self._index+1]
+            self.level = levels[self._index]
         else:
             pass
     def is_lead(self):
