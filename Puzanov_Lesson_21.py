@@ -38,7 +38,7 @@ for i in my_list:
         pass
     elif isinstance(i, str):
         cursor.execute(f'''insert into str_table(col_1) values(?)''', ({str(i)}))
-        cursor.execute(f'''insert into int_table(col_1) values(?)''', ({len(i)}))
+        cursor.execute(f'''insert into int_table(col_1) values(?)''', (str({len(i)})))
 k = cursor.fetchall()
 if sum(k) > 5:
     cursor.execute('''delete from str_table where id=1''')
