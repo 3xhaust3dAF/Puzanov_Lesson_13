@@ -170,43 +170,43 @@ class Calculator(QWidget):
     def pl(self):
         self.operation = '+'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def pow_f(self):
         self.operation = '**'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def sqrt_f(self):
         self.operation = 'sqrt'
-        self.operand_1 = float(self.label.text())
+        self.operand_1 = int(self.label.text())
         self.label.setText(f'sqrt({self.label.text()})')
 
     def z_f(self):
         self.operation = 'Z'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def ost_f(self):
         self.operation = 'ostatok'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
 
     def mn(self):
         self.operation = '-'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def umn(self):
         self.operation = '*'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def rzd(self):
         self.operation = '/'
         self.operand_1 = float(self.label.text())
-        self.label.setText(self.label.text() + self.operation)
+        self.label.setText('')
 
     def clean(self):
         self.label.setText('')
@@ -227,9 +227,15 @@ class Calculator(QWidget):
         elif self.operation == '-':
             self.label.setText(str(self.operand_1 - self.operand_2))
         elif self.operation == '**': self.label.setText(str(self.operand_1 ** self.operand_2))
-        elif self.operation == 'sqrt': self.label.setText(sqrt(self.operand_1))
+        elif self.operation == 'sqrt':
+            if self.operand_1 < 0:
+                self.label.setText("Can't take square root of negative number!")
+                sleep(1)
+                self.label.setText('')
+            else:
+                self.label.setText(sqrt(self.operand_1))
         elif self.operation == 'Z': self.label.setText(self.operand_1 // self.operand_2)
-        elif self.operation == '0.x': self.label.setText(self.operand_1 % self.operand_2)
+        elif self.operation == 'ostatok': self.label.setText(self.operand_1 % self.operand_2)
 
 app = QApplication(sys.argv)
 
