@@ -183,7 +183,7 @@ class Calculator(QWidget):
         self.label.setText(f'sqrt({self.label.text()})')
 
     def z_f(self):
-        self.operation = 'Z'
+        self.operation = '//'
         self.operand_1 = float(self.label.text())
         self.label.setText('')
 
@@ -233,9 +233,9 @@ class Calculator(QWidget):
                 sleep(1)
                 self.label.setText('')
             else:
-                self.label.setText(sqrt(self.operand_1))
-        elif self.operation == 'Z': self.label.setText(self.operand_1 // self.operand_2)
-        elif self.operation == 'ostatok': self.label.setText(self.operand_1 % self.operand_2)
+                self.label.setText(str(sqrt(self.operand_1)))
+        elif self.operation == '//': self.label.setText(str(self.operand_1 // self.operand_2))
+        elif self.operation == 'ostatok': self.label.setText(str(self.operand_1 % self.operand_2))
 
 app = QApplication(sys.argv)
 
