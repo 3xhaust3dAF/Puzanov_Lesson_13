@@ -179,7 +179,7 @@ class Calculator(QWidget):
 
     def sqrt_f(self):
         self.operation = 'sqrt'
-        self.operand_1 = int(self.label.text())
+        self.operand_1 = float(self.label.text())
         self.label.setText(f'sqrt({self.label.text()})')
 
     def z_f(self):
@@ -212,7 +212,8 @@ class Calculator(QWidget):
         self.label.setText('')
 
     def ravno(self):
-        self.operand_2 = float(self.label.text())
+        if self.operation != 'sqrt':
+            self.operand_2 = float(self.label.text())
         if self.operation == '+': self.label.setText(str(self.operand_1 + self.operand_2))
         elif self.operation == '*': self.label.setText(str(self.operand_1 * self.operand_2))
         elif self.operation == '/':
